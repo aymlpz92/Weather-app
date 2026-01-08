@@ -12,6 +12,31 @@ body {
     background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
 }
 
+#changer {
+    /* mt-2 text-center p-3 text-white font-weight-bold text-uppercase d-inline-block */
+    margin: 25px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+button:hover {
+    background: #2980B9;
+    background: linear-gradient(to right, #6DD5FA, #2980B9);
+}
+
+button {
+    padding: 15px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: rgba(178, 223, 251, .3);
+    border-radius: 8px;
+    border-color: #fff ;
+    cursor: pointer;
+}
+
 
 .card {
     width: 90%;
@@ -19,7 +44,7 @@ body {
     background: #6DD5FA;
     color: #FFFFFF;
     border-radius: 20px;
-    margin: 100px auto 20px ;
+    margin: 50px auto 20px ;
     padding: 40px 35px;
     text-align: center;
 }

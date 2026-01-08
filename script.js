@@ -1,27 +1,33 @@
-const apiKey        = "477a188871d6483c651ab7381ae3ce27";
-const apiUrl        = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+
+let ville = 'La Rochelle';
+let changerDeVille = document.querySelector('#changer');
+checkWeather(ville);
 
 const weatherIcon   = document.querySelector('.weather-icon');
 const weatherText   = document.querySelector('.weather-text');
 
-async function checkWeather() {
 
-    const responseJson      = await fetch('config.json');
-    
-    if(!responseJson.ok) {
-        throw new Error(`Erreur de chargement de config.json': ${responseJson.status} ${responseJson.statusText}`);
+changerDeVille.addEventListener('click', () => {
+        ville = prompt('Quelle ville voulez vous choisir ?');
+        checkWeather(ville);
+    })
+
+async function checkWeather(ville) {
+
+    const url = 'https://api.openweathermap.org/data/2.5/weather?q=' 
+    + ville + '&appid=477a188871d6483c651ab7381ae3ce27&units=metric';
+
+    const requete = await fetch(url, {
+        method: 'GET'
+    });
+
+    if(!requete.ok) {
+        alert('Un problème est survenu, merci de réesayer ultérieurement.');
     }
 
-    const config            = await responseJson.json();
-    const city              = config.city 
-    const response          = await fetch(apiUrl + city + `&appid=${apiKey}`);
-    var data                = await response.json();
-
-    if(!city) {
-        console.error('Aucune ville définie dans config.json');
-    }
     else {
-
+        let data = await requete.json();
         document.querySelector('.city').innerHTML = data.name;
         document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + "°c";
         document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
@@ -69,7 +75,6 @@ async function checkWeather() {
         
 }
 
-setInterval(checkWeather(), 3600000);
 
 
 
