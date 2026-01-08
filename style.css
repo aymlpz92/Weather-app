@@ -13,7 +13,6 @@ body {
 }
 
 #changer {
-    /* mt-2 text-center p-3 text-white font-weight-bold text-uppercase d-inline-block */
     margin: 25px 0px 0px 0px;
     display: flex;
     justify-content: center;
@@ -21,10 +20,6 @@ body {
 
 }
 
-button:hover {
-    background: #2980B9;
-    background: linear-gradient(to right, #6DD5FA, #2980B9);
-}
 
 button {
     padding: 15px;
@@ -35,6 +30,11 @@ button {
     border-radius: 8px;
     border-color: #fff ;
     cursor: pointer;
+}
+
+button:hover {
+    background: #2980B9;
+    background: linear-gradient(to right, #6DD5FA, #2980B9);
 }
 
 

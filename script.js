@@ -1,22 +1,20 @@
-
-
-let ville = 'La Rochelle';
-let changerDeVille = document.querySelector('#changer');
-checkWeather(ville);
+let city = 'La Rochelle';
+let changeCity = document.querySelector('#changer');
+checkWeather(city);
 
 const weatherIcon   = document.querySelector('.weather-icon');
 const weatherText   = document.querySelector('.weather-text');
 
 
-changerDeVille.addEventListener('click', () => {
-        ville = prompt('Quelle ville voulez vous choisir ?');
-        checkWeather(ville);
+changeCity.addEventListener('click', () => {
+        city = prompt('Quelle ville voulez vous choisir ?');
+        checkWeather(city);
     })
 
-async function checkWeather(ville) {
+async function checkWeather(city) {
 
     const url = 'https://api.openweathermap.org/data/2.5/weather?q=' 
-    + ville + '&appid=477a188871d6483c651ab7381ae3ce27&units=metric';
+    + city + '&appid=477a188871d6483c651ab7381ae3ce27&units=metric';
 
     const requete = await fetch(url, {
         method: 'GET'
@@ -74,31 +72,3 @@ async function checkWeather(ville) {
     }
         
 }
-
-
-
-
-// if(data.weather[0].main == "Clouds") {
-        //     weatherIcon.src = "images/clouds.png";
-        //     weatherText.textContent = "Nuageux";
-        // }
-        // else if(data.weather[0].main == "Clear") {
-        //     weatherIcon.src = "images/clear.png";
-        //     weatherText.textContent = "Ciel dégagé";
-        // }
-        // else if(data.weather[0].main == "Drizzle") {
-        //     weatherIcon.src = "images/drizzle.png";
-        //     weatherText.textContent = "Pluie fine";
-        // }
-        // else if(data.weather[0].main == "Mist") {
-        //     weatherIcon.src = "images/mist.png";
-        //     weatherText.textContent = "brume";
-        // }
-        // else if(data.weather[0].main == "Rain") {
-        //     weatherIcon.src = "images/rain.png";
-        //     weatherText.textContent = "Pluie";
-        // }
-        // else if(data.weather[0].main == "Snow") {
-        //     weatherIcon.src = "images/snow.png";
-        //     weatherText.textContent = "Neige";
-        // }
